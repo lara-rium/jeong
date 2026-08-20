@@ -17,8 +17,8 @@ defmodule JeongWeb.Router do
   scope "/", JeongWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
-    get "/register", RegisterController, :index
+    get "/", IndexController, :index
+    resources "/users", UserController, only: [:create, :new]
   end
 
   if Application.compile_env(:jeong, :dev_routes) do

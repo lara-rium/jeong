@@ -1,4 +1,4 @@
-defmodule JeongWeb.PageControllerTest do
+defmodule JeongWeb.IndexControllerTest do
   use JeongWeb.ConnCase
 
   test "GET /", %{conn: conn} do
