@@ -2,14 +2,10 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "command": "mix credo",
+      "command": "mix credo --format=flycheck | cut -d: -f1 | sort -u",
       "label": "mix: Credo",
-      "presentation": {
-        "clear": true,
-        "focus": true
-      },
-      "problemMatcher": [],
-      "type": "shell"
+      "type": "shell",
+      "problemMatcher": []
     },
     {
       "command": "mix run .vscode/temp.exs",
@@ -30,6 +26,6 @@
       },
       "problemMatcher": [],
       "type": "shell"
-    },
+    }
   ]
 }

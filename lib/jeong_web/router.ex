@@ -21,6 +21,13 @@ defmodule JeongWeb.Router do
     resources "/users", UserController, only: [:create, :new]
   end
 
+  scope "/auth", JeongWeb do
+    pipe_through :browser
+
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
+  end
+
   if Application.compile_env(:jeong, :dev_routes) do
     import Phoenix.LiveDashboard.Router
 

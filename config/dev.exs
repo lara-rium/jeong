@@ -25,6 +25,11 @@ config :phoenix_live_view,
   debug_attributes: true,
   enable_expensive_runtime_checks: true
 
+config :ueberauth, Ueberauth,
+  providers: [
+    google: {Ueberauth.Strategy.Google, [default_scope: "email profile"]}
+  ]
+
 config :jeong, dev_routes: true
 config :logger, :default_formatter, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20

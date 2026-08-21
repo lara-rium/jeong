@@ -1,10 +1,24 @@
 import Config
 
+[".env", System.get_env()]
+|> Dotenvy.source!()
+|> System.put_env()
+
 if System.get_env("PHX_SERVER") do
   config :jeong, JeongWeb.Endpoint, server: true
 end
 
-config :jeong, JeongWeb.Endpoint, http: [port: String.to_integer(System.get_env("PORT", "4000"))]
+config :jeong, JeongWeb.Endpoint,
+  http: [
+    port:
+      "PORT"
+      |> System.get_env("4000")
+      |> String.to_integer()
+  ]
+
+config :ueberauth, Ueberauth.Strategy.Google.OAuth,
+  client_id: {System, :get_env, ["GOOGLE_CLIENT_ID"]},
+  client_secret: {System, :get_env, ["GOOGLE_CLIENT_SECRET"]}
 
 if config_env() == :dev do
   config :jeong, JeongWeb.Endpoint,
