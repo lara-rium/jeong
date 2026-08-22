@@ -18,14 +18,15 @@ defmodule JeongWeb.Router do
     pipe_through :browser
 
     get "/", IndexController, :index
-    resources "/users", UserController, only: [:create, :new]
   end
 
-  scope "/auth", JeongWeb do
+  scope "/users", JeongWeb do
     pipe_through :browser
 
-    get "/:provider", AuthController, :request
-    get "/:provider/callback", AuthController, :callback
+    resources "/", UserController, only: [:create, :new]
+    get "/:id/image", UserController, :image
+    get "/auth/:provider", UserController, :request
+    get "/auth/:provider/callback", UserController, :callback
   end
 
   if Application.compile_env(:jeong, :dev_routes) do

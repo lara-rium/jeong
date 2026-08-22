@@ -2,10 +2,35 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "command": "mix credo --format=flycheck | cut -d: -f1 | sort -u",
-      "label": "mix: Credo",
-      "type": "shell",
-      "problemMatcher": []
+      "command": "watchexec --exts ex,exs -- 'echo CREDO-START; mix credo --format=flycheck; echo CREDO-END'",
+      "isBackground": true,
+      "label": "credo: watch",
+      "presentation": {
+        "panel": "dedicated",
+        "reveal": "never"
+      },
+      "problemMatcher": {
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^CREDO-START$",
+          "endsPattern": "^CREDO-END$"
+        },
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "owner": "credo",
+        "pattern": {
+          "column": 3,
+          "file": 1,
+          "line": 2,
+          "message": 4,
+          "regexp": "^(.+):(\\d+):(\\d+): [CDFRW]: (.+)$"
+        },
+        "severity": "warning",
+        "source": "credo"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "type": "shell"
     },
     {
       "command": "mix run .vscode/temp.exs",
