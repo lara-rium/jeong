@@ -1,7 +1,7 @@
 defmodule Jeong.Application do
   use Application
 
-  @impl true
+  @impl Application
   def start(_type, _args) do
     children = [
       JeongWeb.Telemetry,
@@ -15,7 +15,7 @@ defmodule Jeong.Application do
     Supervisor.start_link(children, opts)
   end
 
-  @impl true
+  @impl Application
   def config_change(changed, _new, removed) do
     JeongWeb.Endpoint.config_change(changed, removed)
     :ok

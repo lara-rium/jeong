@@ -63,8 +63,8 @@ defmodule JeongWeb do
       import Phoenix.HTML
       import JeongWeb.CoreComponents
 
-      alias Phoenix.LiveView.JS
       alias JeongWeb.Layouts
+      alias Phoenix.LiveView.JS
 
       unquote(verified_routes())
     end
