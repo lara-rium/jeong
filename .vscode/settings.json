@@ -1,0 +1,25 @@
+{
+    "pgsql.connections": [
+        {
+            "id": "C3AFC6EA-2B96-4494-9810-0F2FA0A25985",
+            "groupId": "54CEDF01-0EEC-4631-8164-D863319517D8",
+            "authenticationType": "None",
+            "connectTimeout": 15,
+            "applicationName": "vscode-pgsql",
+            "clientEncoding": "utf8",
+            "sslmode": "disable",
+            "sshSavePassword": true,
+            "savePassword": true,
+            "sslRootCertMode": "none",
+            "server": "localhost",
+            "expiresOn": 0,
+            "emptyPasswordInput": true,
+            "user": "jeong",
+            "database": "jeong_dev",
+            "profileName": "jeong_dev",
+            "hostaddr": "",
+            "password": "",
+            "sshPassword": ""
+        }
+    ]
+}
