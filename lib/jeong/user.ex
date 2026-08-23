@@ -5,15 +5,14 @@ defmodule Jeong.User do
   schema "users" do
     field :name, :string
     field :email, :string
-    field :image, :binary, load_in_query: false
-    field :image_type, :string
 
     timestamps(type: :utc_datetime)
   end
 
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:name, :email, :image, :image_type])
-    |> validate_required([:name, :email, :image, :image_type])
+    |> cast(attrs, [:name, :email])
+    |> validate_required([:name, :email])
+    |> unique_constraint(:email)
   end
 end
