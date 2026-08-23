@@ -10,7 +10,7 @@ defmodule JeongWeb.UserController do
 
   def create(conn, %{"name" => name, "email" => email}) do
     user =
-      %User{name: name, email: email}
+      %User{name: name || email, email: email}
       |> Repo.insert!(on_conflict: {:replace, [:name, :updated_at]}, conflict_target: :email)
 
     conn
