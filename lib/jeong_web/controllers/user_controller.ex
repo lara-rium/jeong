@@ -1,17 +1,18 @@
 defmodule JeongWeb.UserController do
   use JeongWeb, :controller
 
-  alias Jeong.Repo
-  alias Jeong.User
+  alias Jeong.Users
 
   def new(conn, _params) do
     render(conn, :new)
   end
 
-  def create(conn, %{"name" => name, "email" => email}) do
-    user =
-      %User{name: name || email, email: email}
-      |> Repo.insert!(on_conflict: {:replace, [:name, :updated_at]}, conflict_target: :email)
+  def new_with_journal(conn, %{token: token}) do
+    render(conn, :new_with_journal)
+  end
+
+  def create(conn, %{"name" => name, "email" => email} = params) do
+    user = Users.register_user(%{name: name, email: email}, params["journal_token"])
 
     conn
     |> renew_session()

@@ -12,6 +12,6 @@ defmodule JeongWeb.IndexController do
   end
 
   def destination(conn) do
-    if get_session(conn, :user_id), do: ~p"/", else: ~p"/users/new"
+    if conn.assigns.current_user, do: ~p"/", else: ~p"/users/new"
   end
 end

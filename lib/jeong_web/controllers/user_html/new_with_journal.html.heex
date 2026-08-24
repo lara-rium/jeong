@@ -1,0 +1,15 @@
+<Layouts.flash_group flash={@flash} />
+<div class="hero min-h-screen">
+  <div class="hero-content text-center">
+    <div class="max-w">
+      <div class="text-9xl/35 font-bold mb-10">
+        <p>your journey of</p>
+        <p class="font-hand text-accent relative top-[0.086em]">shared journaling</p>
+        <p>starts here</p>
+      </div>
+      <.link href={~p"/auth/google?journal_token=#{@token}"} class="btn btn-accent btn-xl font-bold">
+        sign up with google
+      </.link>
+    </div>
+  </div>
+</div>
