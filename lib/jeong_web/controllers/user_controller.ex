@@ -2,6 +2,7 @@ defmodule JeongWeb.UserController do
   use JeongWeb, :controller
 
   alias Jeong.Users
+  alias Plug.CSRFProtection
 
   def new(conn, _params) do
     render(conn, :new)
@@ -21,7 +22,7 @@ defmodule JeongWeb.UserController do
   end
 
   defp renew_session(conn) do
-    Plug.CSRFProtection.delete_csrf_token()
+    CSRFProtection.delete_csrf_token()
 
     conn
     |> configure_session(renew: true)

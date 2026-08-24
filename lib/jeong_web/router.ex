@@ -1,6 +1,8 @@
 defmodule JeongWeb.Router do
   use JeongWeb, :router
 
+  alias Jeong.Users
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -52,7 +54,9 @@ defmodule JeongWeb.Router do
   end
 
   defp redirect_to_index(conn, _opts) do
-    if conn.request_path == JeongWeb.IndexController.destination(conn) do
+    alias JeongWeb.IndexController
+
+    if conn.request_path == IndexController.destination(conn) do
       conn
     else
       conn
@@ -63,6 +67,6 @@ defmodule JeongWeb.Router do
 
   defp fetch_current_user(conn, _opts) do
     user_id = get_session(conn, :user_id)
-    assign(conn, :current_user, user_id && Jeong.Users.get_user!(user_id))
+    assign(conn, :current_user, user_id && Users.get_user!(user_id))
   end
 end

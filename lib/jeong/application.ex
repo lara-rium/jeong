@@ -1,6 +1,8 @@
 defmodule Jeong.Application do
   use Application
 
+  alias JeongWeb.Endpoint
+
   @impl Application
   def start(_type, _args) do
     children = [
@@ -17,7 +19,7 @@ defmodule Jeong.Application do
 
   @impl Application
   def config_change(changed, _new, removed) do
-    JeongWeb.Endpoint.config_change(changed, removed)
+    Endpoint.config_change(changed, removed)
     :ok
   end
 end
