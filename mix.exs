@@ -40,7 +40,7 @@ defmodule Jeong.MixProject do
       {:dns_cluster, "~> 0.2.0"},
       {:daisyui,
        github: "saadeghi/daisyui",
-       tag: "v5.5.20",
+       tag: "v5.7.22",
        sparse: "packages/bundle",
        app: false,
        compile: false,
