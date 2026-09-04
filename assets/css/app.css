@@ -26,9 +26,9 @@
   default: false;
   prefersdark: true;
   color-scheme: "dark";
-  --color-base-100: oklch(26% 0.007 34.298);
-  --color-base-200: oklch(0% 0.066 53.813);
-  --color-base-300: oklch(37% 0.01 67.558);
+  --color-base-100: oklch(14% 0.004 49.25);
+  --color-base-200: oklch(21% 0.006 56.043);
+  --color-base-300: oklch(26% 0.007 34.298);
   --color-base-content: oklch(98% 0.026 102.212);
   --color-primary: oklch(85% 0.199 91.936);
   --color-primary-content: oklch(28% 0.066 53.813);
@@ -51,7 +51,7 @@
   --radius-box: 2rem;
   --size-selector: 0.25rem;
   --size-field: 0.25rem;
-  --border: 0.5px;
+  --border: 2px;
   --depth: 1;
   --noise: 1;
 }
@@ -62,9 +62,9 @@
   prefersdark: false;
   color-scheme: "light";
   --color-base-100: oklch(98% 0.001 106.423);
-  --color-base-200: oklch(92% 0.003 48.717);
-  --color-base-300: oklch(97% 0.001 106.424);
-  --color-base-content: oklch(28% 0.066 53.813);
+  --color-base-200: oklch(97% 0.001 106.424);
+  --color-base-300: oklch(92% 0.003 48.717);
+  --color-base-content: oklch(14% 0.004 49.25);
   --color-primary: oklch(94% 0.129 101.54);
   --color-primary-content: oklch(28% 0.066 53.813);
   --color-secondary: oklch(97% 0.071 103.193);
@@ -86,14 +86,18 @@
   --radius-box: 2rem;
   --size-selector: 0.25rem;
   --size-field: 0.25rem;
-  --border: 0.5px;
+  --border: 2px;
   --depth: 1;
   --noise: 1;
 }
 
+@utility textarea {
+  border-radius: 1rem;
+}
+
 @theme {
   --font-sans: "cattivo", sans-serif;
-  --font-hand: "begaz", sans-serif;
+  --font-hand: "begaz", cursive;
 }
 
 /* Add variants based on LiveView classes */

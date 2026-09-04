@@ -83,6 +83,7 @@ defmodule Jeong.MixProject do
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
       "assets.build": ["compile", "tailwind jeong", "esbuild jeong"],
       "assets.deploy": [
+        "compile",
         "tailwind jeong --minify",
         "esbuild jeong --minify",
         "phx.digest"

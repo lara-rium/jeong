@@ -32,6 +32,7 @@ defmodule JeongWeb.Router do
       get "/users/new", UserController, :new
       get "/users/new/:token", UserController, :new_with_journal
       resources "/journals", JournalController, only: [:show]
+      live "/entries/new", EntryLive.New
     end
   end
 
@@ -67,6 +68,6 @@ defmodule JeongWeb.Router do
 
   defp fetch_current_user(conn, _opts) do
     user_id = get_session(conn, :user_id)
-    assign(conn, :current_user, user_id && Users.get_user!(user_id))
+    assign(conn, :current_user, user_id && Users.get_user(user_id))
   end
 end

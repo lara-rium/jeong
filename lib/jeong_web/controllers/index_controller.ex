@@ -1,6 +1,8 @@
 defmodule JeongWeb.IndexController do
   use JeongWeb, :controller
 
+  alias Jeong.Entries
+
   def index(conn, _params) do
     path = destination(conn)
 
@@ -12,6 +14,13 @@ defmodule JeongWeb.IndexController do
   end
 
   def destination(conn) do
-    if conn.assigns.current_user, do: ~p"/", else: ~p"/users/new"
+    user = conn.assigns.current_user
+
+    cond do
+      is_nil(user) -> ~p"/users/new"
+      # todo: only if yesterday entry missing
+      Entries.get_entries(user.journal_id) == [] -> ~p"/entries/new"
+      true -> ~p"/entries/new"
+    end
   end
 end

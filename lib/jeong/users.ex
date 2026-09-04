@@ -9,15 +9,11 @@ defmodule Jeong.Users do
         journal = get_or_create_journal(token)
 
         {:ok,
-         Repo.insert!(
-           %User{
-             name: attrs.name || attrs.email,
-             email: attrs.email,
-             journal_id: journal.id
-           },
-           on_conflict: {:replace, [:name, :updated_at, :journal_id]},
-           conflict_target: :email
-         )}
+         Repo.insert!(%User{
+           name: attrs.name || attrs.email,
+           email: attrs.email,
+           journal_id: journal.id
+         })}
       end)
 
     user
@@ -31,7 +27,9 @@ defmodule Jeong.Users do
 
   defp get_or_create_journal(token), do: Repo.get_by!(Journal, token: token)
 
-  def get_user!(id), do: Repo.get!(User, id)
+  def get_user(id), do: Repo.get(User, id)
+
+  def get_user_by_email(email), do: Repo.get_by(User, email: email)
 
   def get_journal!(id),
     do:

@@ -19,7 +19,9 @@ defmodule JeongWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, formats: [:html, :json]
+      use Phoenix.Controller,
+        formats: [:html, :json],
+        layouts: [html: {JeongWeb.Layouts, :app}]
 
       use Gettext, backend: JeongWeb.Gettext
 
@@ -31,7 +33,7 @@ defmodule JeongWeb do
 
   def live_view do
     quote do
-      use Phoenix.LiveView
+      use Phoenix.LiveView, layout: {JeongWeb.Layouts, :app}
 
       unquote(html_helpers())
     end
