@@ -80,7 +80,11 @@ defmodule Jeong.MixProject do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
+      "assets.setup": [
+        "tailwind.install --if-missing",
+        "esbuild.install --if-missing",
+        "cmd mkdir -p assets/node_modules && ln -sfn ../../deps/daisyui assets/node_modules/daisyui && ln -sfn ../../_build/dev/phoenix-colocated assets/node_modules/phoenix-colocated"
+      ],
       "assets.build": ["compile", "tailwind jeong", "esbuild jeong"],
       "assets.deploy": [
         "compile",
@@ -88,7 +92,13 @@ defmodule Jeong.MixProject do
         "esbuild jeong --minify",
         "phx.digest"
       ],
-      precommit: ["compile --warnings-as-errors", "deps.unlock --unused", "format", "test"]
+      precommit: [
+        "compile --warnings-as-errors",
+        "deps.unlock --unused",
+        "format",
+        "credo",
+        "test"
+      ]
     ]
   end
 end
