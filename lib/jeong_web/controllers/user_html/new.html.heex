@@ -1,12 +1,13 @@
-<div class="hero min-h-screen">
-  <div class="hero-content text-center">
-    <div class="max-w">
-      <div class="text-9xl/35 font-bold mb-10">
-        <p>your journey of</p>
-        <p class="font-hand text-accent relative top-[0.086em]">shared journaling</p>
-        <p>starts here</p>
-      </div>
-      <.link href={~p"/auth/google"} class="btn btn-accent btn-xl font-bold">sign up with google</.link>
-    </div>
+<main class="flex flex-col gap-16 justify-center items-center min-h-screen">
+  <div class="text-8xl font-bold text-center">
+    <p>your journey of</p>
+    <p class="text-accent italic mt-4">shared journaling</p>
+    <p>starts here</p>
   </div>
-</div>
+  <.link
+    href={~p"/auth/google"}
+    class="btn btn-accent btn-xl font-bold w-fit"
+  >
+    sign up with google
+  </.link>
+</main>

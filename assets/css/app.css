@@ -18,86 +18,43 @@
   themes: false;
 }
 
-/* daisyUI theme plugin.
-  We ship with two themes, a light one inspired on Phoenix colors and a dark one inspired
-  on Elixir colors. Build your own at: https://daisyui.com/theme-generator/ */
-@plugin "daisyui/packages/bundle/daisyui-theme" {
-  name: "dark";
-  default: false;
-  prefersdark: true;
-  color-scheme: "dark";
-  --color-base-100: oklch(14% 0.004 49.25);
-  --color-base-200: oklch(21% 0.006 56.043);
-  --color-base-300: oklch(26% 0.007 34.298);
-  --color-base-content: oklch(98% 0.026 102.212);
-  --color-primary: oklch(85% 0.199 91.936);
-  --color-primary-content: oklch(28% 0.066 53.813);
-  --color-secondary: oklch(79% 0.184 86.047);
-  --color-secondary-content: oklch(28% 0.066 53.813);
-  --color-accent: oklch(90% 0.182 98.111);
-  --color-accent-content: oklch(28% 0.066 53.813);
-  --color-neutral: oklch(85% 0.199 91.936);
-  --color-neutral-content: oklch(28% 0.066 53.813);
-  --color-info: oklch(74% 0.16 232.661);
-  --color-info-content: oklch(29% 0.066 243.157);
-  --color-success: oklch(84% 0.238 128.85);
-  --color-success-content: oklch(27% 0.072 132.109);
-  --color-warning: oklch(82% 0.189 84.429);
-  --color-warning-content: oklch(27% 0.077 45.635);
-  --color-error: oklch(70% 0.191 22.216);
-  --color-error-content: oklch(25% 0.092 26.042);
-  --radius-selector: 2rem;
-  --radius-field: 2rem;
-  --radius-box: 2rem;
-  --size-selector: 0.25rem;
-  --size-field: 0.25rem;
-  --border: 2px;
-  --depth: 1;
-  --noise: 1;
-}
-
 @plugin "daisyui/packages/bundle/daisyui-theme" {
   name: "light";
   default: true;
   prefersdark: false;
   color-scheme: "light";
-  --color-base-100: oklch(98% 0.001 106.423);
-  --color-base-200: oklch(97% 0.001 106.424);
-  --color-base-300: oklch(92% 0.003 48.717);
-  --color-base-content: oklch(14% 0.004 49.25);
-  --color-primary: oklch(94% 0.129 101.54);
-  --color-primary-content: oklch(28% 0.066 53.813);
-  --color-secondary: oklch(97% 0.071 103.193);
-  --color-secondary-content: oklch(28% 0.066 53.813);
-  --color-accent: oklch(90% 0.182 98.111);
-  --color-accent-content: oklch(28% 0.066 53.813);
-  --color-neutral: oklch(94% 0.129 101.54);
-  --color-neutral-content: oklch(28% 0.066 53.813);
-  --color-info: oklch(90% 0.058 230.902);
-  --color-info-content: oklch(29% 0.066 243.157);
-  --color-success: oklch(93% 0.127 124.321);
-  --color-success-content: oklch(27% 0.072 132.109);
-  --color-warning: oklch(90% 0.076 70.697);
-  --color-warning-content: oklch(26% 0.079 36.259);
-  --color-error: oklch(88% 0.062 18.334);
-  --color-error-content: oklch(25% 0.092 26.042);
+  --color-base-100: oklch(0.994 0.0028 84.62);
+  --color-base-200: oklch(0.9862 0.024 100.26);
+  --color-base-300: oklch(0.8812 0.1237 93.24);
+  --color-base-content: oklch(0.3519 0.0485 53.74);
+  --color-primary: oklch(0.918449 0.133285 98.3956);
+  --color-primary-content: oklch(0.3519 0.0485 53.74);
+  --color-secondary: oklch(0.9454 0.1043 98.19);
+  --color-secondary-content: oklch(0.3519 0.0485 53.74);
+  --color-accent: oklch(0.8562 0.1778 81.37);
+  --color-accent-content: oklch(0.3519 0.0485 53.74);
+  --color-neutral: oklch(0.969 0.0686 100.36);
+  --color-neutral-content: oklch(0.3519 0.0485 53.74);
+  --color-info: oklch(0.9799 0.0099 217.67);
+  --color-info-content: oklch(0.3511 0.0572 241.61);
+  --color-success: oklch(0.9608 0.0231 145.27);
+  --color-success-content: oklch(0.3268 0.0535 148.58);
+  --color-warning: oklch(0.9787 0.0154 70.83);
+  --color-warning-content: oklch(0.3501 0.0687 40.82);
+  --color-error: oklch(0.9842 0.0071 31.02);
+  --color-error-content: oklch(0.3461 0.0798 30.53);
   --radius-selector: 2rem;
   --radius-field: 2rem;
   --radius-box: 2rem;
   --size-selector: 0.25rem;
   --size-field: 0.25rem;
-  --border: 2px;
+  --border: 1px;
   --depth: 1;
   --noise: 1;
 }
 
-@utility textarea {
-  border-radius: 1rem;
-}
-
 @theme {
-  --font-sans: "cattivo", sans-serif;
-  --font-hand: "begaz", cursive;
+  --font-sans: "fillip", sans-serif;
 }
 
 /* Add variants based on LiveView classes */
@@ -105,10 +62,11 @@
 @custom-variant phx-submit-loading (.phx-submit-loading&, .phx-submit-loading &);
 @custom-variant phx-change-loading (.phx-change-loading&, .phx-change-loading &);
 
-/* Use the data attribute for dark mode  */
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
 /* Make LiveView wrapper divs transparent for layout */
 [data-phx-session], [data-phx-teleported-src] { display: contents }
 
 /* This file is for your main application CSS */
+@utility noise {
+  background-image: var(--fx-noise);
+  background-size: calc(var(--noise) * 100%);
+}

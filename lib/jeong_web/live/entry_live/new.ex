@@ -35,12 +35,13 @@ defmodule JeongWeb.EntryLive.New do
   end
 
   def render(assigns) do
+    # todo: customize error/warning/info colors etc
     # todo: get formatting for html code
     ~H"""
     <main class="grid place-items-center min-h-screen">
       <.form for={@form} phx-change="validate" phx-submit="save">
-        <fieldset class="fieldset bg-base-200 w-xl border-base-300 rounded-box border p-4">
-          <legend class="fieldset-legend">write about your day to unlock your journal</legend>
+        <fieldset class="fieldset bg-base-200 w-xl rounded-box border p-4 rounded-ss-2xl border-base-300">
+          <legend class="fieldset-legend">add yesterday to your journal to continue</legend>
 
           <div class="carousel gap-4 *:carousel-item *:box-border *:aspect-[4/5] *:h-48 *:rounded-box">
             <.live_img_preview
@@ -49,7 +50,11 @@ defmodule JeongWeb.EntryLive.New do
               class="object-cover"
             />
 
-            <label id="compress" phx-hook=".Compress" class="btn btn-dash">
+            <label
+              id="compress"
+              phx-hook=".Compress"
+              class="btn btn-dash noise"
+            >
               <span class="text-2xl">+</span>
               <span>add a photo</span>
               <.live_file_input upload={@uploads.media} class="hidden" />
@@ -59,8 +64,8 @@ defmodule JeongWeb.EntryLive.New do
           <.input
             field={@form[:text]}
             type="textarea"
-            class="w-full textarea h-48 bg-base-200"
-            placeholder="write a bit about your day"
+            class="w-full textarea noise h-48 rounded-3xl bg-base-200 noise"
+            placeholder="write about it..."
             required
           />
 
