@@ -5,6 +5,7 @@ defmodule JeongWeb.EntryLive.New do
   alias Jeong.Entry
   alias Jeong.Users
 
+  # todo: rewrite other stuff in liveview. maybe
   def mount(_params, %{"user_id" => user_id}, socket) do
     {:ok,
      socket
@@ -35,15 +36,13 @@ defmodule JeongWeb.EntryLive.New do
   end
 
   def render(assigns) do
-    # todo: customize error/warning/info colors etc
-    # todo: get formatting for html code
     ~H"""
     <main class="grid place-items-center min-h-screen">
       <.form for={@form} phx-change="validate" phx-submit="save">
         <fieldset class="fieldset bg-base-200 w-xl rounded-box border p-4 rounded-ss-2xl border-base-300">
           <legend class="fieldset-legend">add yesterday to your journal to continue</legend>
 
-          <div class="carousel gap-4 *:carousel-item *:box-border *:aspect-[4/5] *:h-48 *:rounded-box">
+          <div class="carousel gap-4 *:carousel-item *:box-border *:aspect-4/5 *:h-48 *:rounded-box">
             <.live_img_preview
               :for={entry <- @uploads.media.entries}
               entry={entry}
@@ -64,7 +63,7 @@ defmodule JeongWeb.EntryLive.New do
           <.input
             field={@form[:text]}
             type="textarea"
-            class="w-full textarea noise h-48 rounded-3xl bg-base-200 noise"
+            class="w-full textarea noise h-48 rounded-3xl bg-base-200"
             placeholder="write about it..."
             required
           />

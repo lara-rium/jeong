@@ -35,14 +35,14 @@
   --color-accent-content: oklch(0.3519 0.0485 53.74);
   --color-neutral: oklch(0.969 0.0686 100.36);
   --color-neutral-content: oklch(0.3519 0.0485 53.74);
-  --color-info: oklch(0.9799 0.0099 217.67);
-  --color-info-content: oklch(0.3511 0.0572 241.61);
-  --color-success: oklch(0.9608 0.0231 145.27);
-  --color-success-content: oklch(0.3268 0.0535 148.58);
-  --color-warning: oklch(0.9787 0.0154 70.83);
-  --color-warning-content: oklch(0.3501 0.0687 40.82);
-  --color-error: oklch(0.9842 0.0071 31.02);
-  --color-error-content: oklch(0.3461 0.0798 30.53);
+  --color-info: oklch(0.5256 0.108 232.54);
+  --color-info-content: oklch(0.9799 0.0099 217.67);
+  --color-success: oklch(0.5268 0.1296 147.18);
+  --color-success-content: oklch(0.982 0.0092 145.93);
+  --color-warning: oklch(0.5919 0.186 46.95);
+  --color-warning-content: oklch(0.9787 0.0154 70.83);
+  --color-error: oklch(0.5665 0.1977 32.81);
+  --color-error-content: oklch(0.9842 0.0071 31.02);
   --radius-selector: 2rem;
   --radius-field: 2rem;
   --radius-box: 2rem;
@@ -53,8 +53,15 @@
   --noise: 1;
 }
 
+@font-face {
+  font-family: "playpen-sans";
+  src: url("/fonts/playpen-sans.ttf");
+  font-weight: 100 800;
+  font-display: swap;
+}
+
 @theme {
-  --font-sans: "fillip", sans-serif;
+  --font-sans: "playpen-sans", sans-serif;
 }
 
 /* Add variants based on LiveView classes */
