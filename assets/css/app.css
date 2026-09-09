@@ -53,15 +53,8 @@
   --noise: 1;
 }
 
-@font-face {
-  font-family: "playpen-sans";
-  src: url("/fonts/playpen-sans.ttf");
-  font-weight: 100 800;
-  font-display: swap;
-}
-
 @theme {
-  --font-sans: "playpen-sans", sans-serif;
+  --font-sans: "duper", sans-serif;
 }
 
 /* Add variants based on LiveView classes */
@@ -76,4 +69,8 @@
 @utility noise {
   background-image: var(--fx-noise);
   background-size: calc(var(--noise) * 100%);
+}
+
+@utility text-trim {
+  text-box: trim-both cap alphabetic;
 }
