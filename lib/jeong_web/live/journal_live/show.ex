@@ -1,0 +1,19 @@
+defmodule JeongWeb.JournalLive.Show do
+  use JeongWeb, :live_view
+
+  def render(assigns) do
+    ~H"""
+    <Layouts.app flash={@flash}>
+      <div class="hero min-h-screen">
+        <div class="hero-content text-center">
+          <div class="max-w">
+            <div class="text-9xl/35 font-bold mb-10">
+              <p>add thing</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Layouts.app>
+    """
+  end
+end

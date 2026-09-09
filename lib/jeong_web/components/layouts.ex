@@ -3,10 +3,13 @@ defmodule JeongWeb.Layouts do
 
   embed_templates "layouts/*"
 
+  attr :flash, :map, required: true
+  slot :inner_block
+
   def app(assigns) do
     ~H"""
     <.flash_group flash={@flash} />
-    {@inner_content}
+    {render_slot(@inner_block)}
     """
   end
 

@@ -3,13 +3,11 @@ defmodule JeongWeb.EntryLive.New do
 
   alias Jeong.Entries
   alias Jeong.Entry
-  alias Jeong.Users
 
-  # todo: rewrite other stuff in liveview. maybe
-  def mount(_params, %{"user_id" => user_id}, socket) do
+  def mount(_params, _session, socket) do
     {:ok,
      socket
-     |> assign(current_user: Users.get_user(user_id), form: to_form(Entry.changeset()))
+     |> assign(form: to_form(Entry.changeset()))
      |> allow_upload(:media, accept: ~w(image/*), max_entries: 10)}
   end
 
@@ -37,41 +35,43 @@ defmodule JeongWeb.EntryLive.New do
 
   def render(assigns) do
     ~H"""
-    <main class="grid place-items-center min-h-screen">
-      <.form for={@form} phx-change="validate" phx-submit="save">
-        <fieldset class="fieldset bg-base-200 w-xl rounded-box border p-4 rounded-ss-2xl border-base-300">
-          <legend class="fieldset-legend">add yesterday to your journal to continue</legend>
+    <Layouts.app flash={@flash}>
+      <main class="grid place-items-center min-h-screen">
+        <.form id="entry-form" for={@form} phx-change="validate" phx-submit="save">
+          <fieldset class="fieldset bg-base-200 w-xl rounded-box border p-4 rounded-ss-2xl border-base-300">
+            <legend class="fieldset-legend">add yesterday to your journal to continue</legend>
 
-          <div class="carousel gap-4 *:carousel-item *:box-border *:aspect-4/5 *:h-48 *:rounded-box">
-            <.live_img_preview
-              :for={entry <- @uploads.media.entries}
-              entry={entry}
-              class="object-cover"
+            <div class="carousel gap-4 *:carousel-item *:box-border *:aspect-4/5 *:h-48 *:rounded-box">
+              <.live_img_preview
+                :for={entry <- @uploads.media.entries}
+                entry={entry}
+                class="object-cover"
+              />
+
+              <label
+                id="compress"
+                phx-hook=".Compress"
+                class="btn btn-dash noise"
+              >
+                <span class="text-2xl">+</span>
+                <span>add a photo</span>
+                <.live_file_input upload={@uploads.media} class="hidden" />
+              </label>
+            </div>
+
+            <.input
+              field={@form[:text]}
+              type="textarea"
+              class="w-full textarea noise h-48 rounded-3xl bg-base-200"
+              placeholder="write about it..."
+              required
             />
 
-            <label
-              id="compress"
-              phx-hook=".Compress"
-              class="btn btn-dash noise"
-            >
-              <span class="text-2xl">+</span>
-              <span>add a photo</span>
-              <.live_file_input upload={@uploads.media} class="hidden" />
-            </label>
-          </div>
-
-          <.input
-            field={@form[:text]}
-            type="textarea"
-            class="w-full textarea noise h-48 rounded-3xl bg-base-200"
-            placeholder="write about it..."
-            required
-          />
-
-          <button type="submit" class="btn btn-primary">save</button>
-        </fieldset>
-      </.form>
-    </main>
+            <button type="submit" class="btn btn-primary">save</button>
+          </fieldset>
+        </.form>
+      </main>
+    </Layouts.app>
 
     <script :type={Phoenix.LiveView.ColocatedHook} name=".Compress">
       import imageCompression from "@/vendor/browser-image-compression.mjs"

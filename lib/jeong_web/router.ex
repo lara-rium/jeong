@@ -1,12 +1,9 @@
 defmodule JeongWeb.Router do
   use JeongWeb, :router
 
-  alias Jeong.Users
-
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
-    plug :fetch_current_user
     plug :fetch_live_flash
     plug :put_root_layout, html: {JeongWeb.Layouts, :root}
     plug :protect_from_forgery
@@ -17,21 +14,14 @@ defmodule JeongWeb.Router do
     plug :accepts, ["json"]
   end
 
-  pipeline :canonical_path do
-    plug :redirect_to_index
-  end
-
   scope "/", JeongWeb do
     pipe_through :browser
 
-    get "/", IndexController, :index
-
-    scope "/" do
-      pipe_through :canonical_path
-
-      get "/users/new", UserController, :new
-      get "/users/new/:token", UserController, :new_with_journal
-      resources "/journals", JournalController, only: [:show]
+    live_session :default, on_mount: [JeongWeb.Navigation] do
+      live "/", IndexLive
+      live "/users/new", UserLive.New
+      live "/users/new/:token", UserLive.New, :invite
+      live "/journals/:id", JournalLive.Show
       live "/entries/new", EntryLive.New
     end
   end
@@ -52,22 +42,5 @@ defmodule JeongWeb.Router do
       live_dashboard "/dashboard", metrics: JeongWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
-  end
-
-  defp redirect_to_index(conn, _opts) do
-    alias JeongWeb.IndexController
-
-    if conn.request_path == IndexController.destination(conn) do
-      conn
-    else
-      conn
-      |> redirect(to: "/")
-      |> halt()
-    end
-  end
-
-  defp fetch_current_user(conn, _opts) do
-    user_id = get_session(conn, :user_id)
-    assign(conn, :current_user, user_id && Users.get_user(user_id))
   end
 end
