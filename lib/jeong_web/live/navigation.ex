@@ -31,10 +31,15 @@ defmodule JeongWeb.Navigation do
       |> DateTime.shift(day: -1)
       |> DateTime.to_date()
 
-    entries = Entries.get_entries(user.journal_id, dbg(yesterday))
+    entries = Entries.get_entries(user.journal_id, yesterday)
 
     if Enum.any?(entries, &(&1.user_id == user.id)) do
-      ~p"/journals/#{user.journal_id}/days/#{DateTime.to_date(now) |> Date.to_iso8601()}"
+      today =
+        now
+        |> DateTime.to_date()
+        |> Date.to_iso8601()
+
+      ~p"/journals/#{user.journal_id}/days/#{today}"
     else
       ~p"/entries/new"
     end
