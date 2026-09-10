@@ -70,6 +70,7 @@ defmodule Jeong.MixProject do
       {:tailwind, "~> 0.5", runtime: Mix.env() == :dev},
       {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.0"},
+      {:tz, "~> 0.28"},
       {:ueberauth_google, "~> 0.10"}
     ]
   end

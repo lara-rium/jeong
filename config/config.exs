@@ -44,4 +44,6 @@ config :logger, :default_formatter,
 config :jeong, Jeong.Mailer, adapter: Swoosh.Adapters.Local
 config :phoenix, :json_library, Jason
 
+config :elixir, :time_zone_database, Tz.TimeZoneDatabase
+
 import_config "#{config_env()}.exs"

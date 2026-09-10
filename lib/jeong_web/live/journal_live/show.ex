@@ -1,6 +1,7 @@
 defmodule JeongWeb.JournalLive.Show do
   use JeongWeb, :live_view
 
+  # todo: implement this
   def render(assigns) do
     ~H"""
     <Layouts.app flash={@flash}>

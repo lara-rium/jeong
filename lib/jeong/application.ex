@@ -10,6 +10,7 @@ defmodule Jeong.Application do
       Jeong.Repo,
       {DNSCluster, query: Application.get_env(:jeong, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Jeong.PubSub},
+      {Tz.UpdatePeriodically, []},
       JeongWeb.Endpoint
     ]
 

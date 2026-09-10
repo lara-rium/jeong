@@ -28,7 +28,13 @@ defmodule JeongWeb.EntryLive.New do
         {:ok, File.read!(path)}
       end)
 
-    Entries.create_entry(socket.assigns.current_user, params, media)
+    yesterday =
+      socket.assigns.time_zone
+      |> DateTime.now!()
+      |> DateTime.shift(day: -1)
+      |> DateTime.to_date()
+
+    Entries.create_entry(socket.assigns.current_user, params, media, yesterday)
 
     {:noreply, redirect(socket, to: ~p"/")}
   end

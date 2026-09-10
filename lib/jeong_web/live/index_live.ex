@@ -4,7 +4,11 @@ defmodule JeongWeb.IndexLive do
   alias JeongWeb.Navigation
 
   def mount(_params, _session, socket) do
-    {:ok, redirect(socket, to: Navigation.destination(socket.assigns.current_user))}
+    if connected?(socket) do
+      {:ok, redirect(socket, to: Navigation.destination(socket.assigns))}
+    else
+      {:ok, socket}
+    end
   end
 
   def render(assigns) do

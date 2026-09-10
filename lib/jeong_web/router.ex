@@ -21,7 +21,7 @@ defmodule JeongWeb.Router do
       live "/", IndexLive
       live "/users/new", UserLive.New
       live "/users/new/:token", UserLive.New, :invite
-      live "/journals/:id", JournalLive.Show
+      live "/journals/:id/days/:date", JournalLive.Show
       live "/entries/new", EntryLive.New
     end
   end

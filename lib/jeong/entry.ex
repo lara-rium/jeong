@@ -9,6 +9,7 @@ defmodule Jeong.Entry do
   schema "entries" do
     field :text, :string
     field :media, {:array, :binary}, load_in_query: false
+    field :date, :date
 
     belongs_to :journal, Journal
     belongs_to :user, User

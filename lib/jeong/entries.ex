@@ -5,17 +5,16 @@ defmodule Jeong.Entries do
   alias Jeong.Entry
   alias Jeong.Repo
 
-  def create_entry(user, params, media) do
+  def create_entry(user, params, media, date) do
     params
     |> Entry.changeset()
-    |> Changeset.change(media: media, user_id: user.id, journal_id: user.journal_id)
+    |> Changeset.change(media: media, user_id: user.id, journal_id: user.journal_id, date: date)
     |> Repo.insert!()
   end
 
-  def get_entries(journal_id) do
+  def get_entries(journal_id, date) do
     Entry
-    |> where(journal_id: ^journal_id)
-    |> order_by(desc: :id)
+    |> where(journal_id: ^journal_id, date: ^date)
     |> Repo.all()
   end
 end
