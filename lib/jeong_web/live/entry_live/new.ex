@@ -11,7 +11,6 @@ defmodule JeongWeb.EntryLive.New do
      |> allow_upload(:media, accept: ~w(image/*), max_entries: 10)}
   end
 
-  # todo: customize validaiton errors, especially text
   def handle_event("validate", %{"entry" => params}, socket) do
     {:noreply,
      assign(socket,
@@ -47,11 +46,14 @@ defmodule JeongWeb.EntryLive.New do
           <fieldset class="fieldset bg-base-200 w-xl rounded-box border p-4 rounded-ss-2xl border-base-300">
             <legend class="fieldset-legend">add yesterday to your journal to continue</legend>
 
-            <div class="carousel gap-4 *:carousel-item *:box-border *:aspect-4/5 *:h-48 *:rounded-box">
+            <div
+              id="media-carousel"
+              phx-hook=".ScrollToEnd"
+              class="carousel gap-4 rounded-box *:carousel-item *:box-border *:min-w-36 *:h-48 *:rounded-box"
+            >
               <.live_img_preview
                 :for={entry <- @uploads.media.entries}
                 entry={entry}
-                class="object-cover"
               />
 
               <label
@@ -117,6 +119,19 @@ defmodule JeongWeb.EntryLive.New do
 
             submitButton.disabled = false
           })
+        },
+      }
+    </script>
+
+    <script :type={Phoenix.LiveView.ColocatedHook} name=".ScrollToEnd">
+      export default {
+        mounted() {
+          this.el.addEventListener("load", () => {
+            this.el.scrollTo({
+              left: this.el.scrollWidth,
+              behavior: "smooth",
+            })
+          }, {capture: true})
         },
       }
     </script>
