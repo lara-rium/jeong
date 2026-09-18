@@ -43,7 +43,7 @@ defmodule JeongWeb.EntryLive.New do
     <Layouts.app flash={@flash}>
       <main class="grid place-items-center min-h-screen">
         <.form id="entry-form" for={@form} phx-change="validate" phx-submit="save">
-          <fieldset class="fieldset bg-base-200 w-xl rounded-box border p-4 rounded-ss-2xl border-base-300">
+          <fieldset class="fieldset bg-base-200 w-xl rounded-box border p-6 border-base-300">
             <legend class="fieldset-legend">add yesterday to your journal to continue</legend>
 
             <div
@@ -66,6 +66,8 @@ defmodule JeongWeb.EntryLive.New do
                 <.live_file_input upload={@uploads.media} class="hidden" />
               </label>
             </div>
+
+            <div class="my-0 divider"></div>
 
             <.input
               field={@form[:text]}
