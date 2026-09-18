@@ -20,8 +20,9 @@ defmodule JeongWeb.Router do
     live_session :default, on_mount: [JeongWeb.Navigation] do
       live "/", IndexLive
       live "/users/new", UserLive.New
+      # todo: implement this
       live "/users/new/:token", UserLive.New, :invite
-      live "/journals/:id/days/:date", JournalLive.Show
+      live "/journals/:journal_id/entries/:date", JournalLive.Show
       live "/entries/new", EntryLive.New
     end
   end
