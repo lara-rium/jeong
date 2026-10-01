@@ -34,7 +34,6 @@ defmodule JeongWeb.Navigation do
     entry = Entries.get_entry(user.journal_id, user.id, yesterday)
 
     if entry do
-      # todo: send to partner's entry and random entry
       ~p"/journals/#{user.journal_id}/entries/#{Date.to_iso8601(yesterday)}"
     else
       ~p"/entries/new"

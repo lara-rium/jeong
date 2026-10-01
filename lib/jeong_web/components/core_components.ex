@@ -50,7 +50,7 @@ defmodule JeongWeb.CoreComponents do
         <.icon :if={@kind == :error} name="hero-exclamation-circle" class="size-5 shrink-0" />
         <div>
           <p :if={@title} class="font-semibold">{@title}</p>
-          <p class={[!@title && "text-trim"]}>{msg}</p>
+          <p>{msg}</p>
         </div>
         <div class="flex-1" />
         <button type="button" class="group self-start cursor-pointer" aria-label={gettext("close")}>
@@ -282,7 +282,7 @@ defmodule JeongWeb.CoreComponents do
     ~H"""
     <p class="mt-1.5 flex gap-2 items-center text-sm text-error">
       <.icon name="hero-exclamation-circle" class="size-5" />
-      <span class="text-trim">{render_slot(@inner_block)}</span>
+      <span>{render_slot(@inner_block)}</span>
     </p>
     """
   end

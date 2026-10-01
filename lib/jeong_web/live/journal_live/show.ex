@@ -26,6 +26,7 @@ defmodule JeongWeb.JournalLive.Show do
           </legend>
 
           <div class="carousel gap-4 rounded-box *:carousel-item *:box-border *:min-w-36 *:h-48 *:rounded-box">
+            <%!-- todo: clicking should enlarge image --%>
             <img
               :for={media <- entry.media}
               src={"data:image/jpeg;base64,#{Base.encode64(media)}"}
