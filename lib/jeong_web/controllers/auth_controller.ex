@@ -1,6 +1,7 @@
 defmodule JeongWeb.AuthController do
   use JeongWeb, :controller
 
+  plug :save_token when action == :request
   plug Ueberauth
 
   alias Jeong.Users
@@ -12,12 +13,13 @@ defmodule JeongWeb.AuthController do
     |> redirect(to: ~p"/users/new")
   end
 
-  def callback(%{assigns: %{ueberauth_auth: %Ueberauth.Auth{} = auth}} = conn, params) do
+  def callback(%{assigns: %{ueberauth_auth: %Ueberauth.Auth{} = auth}} = conn, _params) do
     user =
       Users.get_user_by_email(auth.info.email) ||
         Users.register_user(
-          %{name: auth.info.first_name, email: auth.info.email},
-          params["journal_token"]
+          auth.info.first_name,
+          auth.info.email,
+          get_session(conn, :token)
         )
 
     conn
@@ -32,5 +34,9 @@ defmodule JeongWeb.AuthController do
     conn
     |> configure_session(renew: true)
     |> clear_session()
+  end
+
+  defp save_token(conn, _options) do
+    put_session(conn, :token, conn.params["token"])
   end
 end

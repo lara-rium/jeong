@@ -33,12 +33,46 @@ defmodule JeongWeb.JournalLive.Show do
             />
           </div>
 
+          <%!-- todo: remove this if no images --%>
           <div class="my-0 divider"></div>
 
           <p class="whitespace-pre-wrap">{entry.text}</p>
         </fieldset>
+
+        <div :if={length(@current_user.journal.users) === 1} class="toast toast-center">
+          <div role="alert" class="alert alert-outline alert-info">
+            <.icon name="hero-user-plus" />
+            <span>send this link to your partner to add them to your journal</span>
+            <button
+              id="copy-invite"
+              type="button"
+              class="btn btn-circle btn-sm btn-info"
+              phx-hook=".CopyText"
+              data-copy={url(~p"/users/new?token=#{@current_user.journal.token}")}
+            >
+              <.icon name="hero-clipboard-document" />
+            </button>
+          </div>
+        </div>
       </main>
     </Layouts.app>
+
+    <script :type={Phoenix.LiveView.ColocatedHook} name=".CopyText">
+      export default {
+        mounted() {
+          this.el.addEventListener("click", async () => {
+            await navigator.clipboard.writeText(this.el.dataset.copy)
+
+            this.el
+              .querySelector(".hero-clipboard-document")
+              .classList.replace(
+                "hero-clipboard-document",
+                "hero-clipboard-document-check"
+              )
+          })
+        }
+      }
+    </script>
     """
   end
 end

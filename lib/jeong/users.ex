@@ -3,15 +3,15 @@ defmodule Jeong.Users do
   alias Jeong.Users.Journal
   alias Jeong.Users.User
 
-  def register_user(attrs, token \\ nil) do
+  def register_user(name, email, token) do
     {:ok, user} =
       Repo.transact(fn ->
         journal = get_or_create_journal(token)
 
         {:ok,
          Repo.insert!(%User{
-           name: attrs.name || attrs.email,
-           email: attrs.email,
+           name: name || email,
+           email: email,
            journal_id: journal.id
          })}
       end)
@@ -27,7 +27,11 @@ defmodule Jeong.Users do
 
   defp get_or_create_journal(token), do: Repo.get_by!(Journal, token: token)
 
-  def get_user(id), do: Repo.get(User, id)
+  def get_user(id),
+    do:
+      User
+      |> Repo.get(id)
+      |> Repo.preload(journal: :users)
 
   def get_user_by_email(email), do: Repo.get_by(User, email: email)
 

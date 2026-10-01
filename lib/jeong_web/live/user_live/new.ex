@@ -2,7 +2,7 @@ defmodule JeongWeb.UserLive.New do
   use JeongWeb, :live_view
 
   def handle_params(params, _uri, socket) do
-    {:noreply, assign(socket, :invite, params["invite"])}
+    {:noreply, assign(socket, :token, params["token"])}
   end
 
   def render(assigns) do
@@ -16,10 +16,14 @@ defmodule JeongWeb.UserLive.New do
         </div>
         <.link
           id="google-signup"
-          href={if @invite, do: ~p"/auth/google?invite=#{@invite}", else: ~p"/auth/google"}
+          href={if @token, do: ~p"/auth/google?token=#{@token}", else: ~p"/auth/google"}
           class="btn btn-accent btn-xl font-bold w-fit"
         >
-          sign up with google
+          <%= if @token do %>
+            sign up with google to join journal
+          <% else %>
+            sign up with google
+          <% end %>
         </.link>
       </main>
     </Layouts.app>
