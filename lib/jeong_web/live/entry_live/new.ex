@@ -27,13 +27,12 @@ defmodule JeongWeb.EntryLive.New do
         {:ok, File.read!(path)}
       end)
 
-    yesterday =
-      socket.assigns.time_zone
-      |> DateTime.now!()
-      |> DateTime.shift(day: -1)
-      |> DateTime.to_date()
-
-    Entries.create_entry(socket.assigns.current_user, params, media, yesterday)
+    Entries.create_entry(
+      socket.assigns.current_user,
+      params,
+      media,
+      socket.assigns.entry_target.date
+    )
 
     {:noreply, redirect(socket, to: ~p"/")}
   end
@@ -44,7 +43,9 @@ defmodule JeongWeb.EntryLive.New do
       <main class="grid place-items-center min-h-screen">
         <.form id="entry-form" for={@form} phx-change="validate" phx-submit="save">
           <fieldset class="fieldset bg-base-200 w-xl rounded-box border p-6 border-base-300">
-            <legend class="fieldset-legend">add yesterday to your journal to continue</legend>
+            <legend class="fieldset-legend">
+              add {if @entry_target.is_today, do: "today", else: "yesterday"} to your journal to continue
+            </legend>
 
             <div
               id="media-carousel"
@@ -78,6 +79,10 @@ defmodule JeongWeb.EntryLive.New do
             />
 
             <button type="submit" class="btn btn-primary">save</button>
+
+            <p :if={!@entry_target.is_today} class="label mt-2 w-full text-center">
+              you're writing for yesterday because it's before 10pm
+            </p>
           </fieldset>
         </.form>
       </main>

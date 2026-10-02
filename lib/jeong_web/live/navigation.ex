@@ -12,31 +12,22 @@ defmodule JeongWeb.Navigation do
   def on_mount(:default, _params, session, socket) do
     user_id = session["user_id"]
     user = user_id && Users.get_user(user_id)
-    time_zone = get_connect_params(socket)["time_zone"]
 
     {:cont,
      socket
      |> assign(:current_user, user)
-     |> assign(:time_zone, time_zone)
+     |> assign(:entry_target, entry_target(socket))
      |> assign(:connected?, connected?(socket))
      |> attach_hook(:canonical_path, :handle_params, &redirect_to_index/3)}
   end
 
   def destination(%{current_user: nil}), do: ~p"/users/new"
 
-  def destination(%{current_user: user, time_zone: time_zone}) do
-    now = DateTime.now!(time_zone)
-
-    # todo: change this to today based on time
-    yesterday =
-      now
-      |> DateTime.shift(day: -1)
-      |> DateTime.to_date()
-
-    entry = Entries.get_entry(user.journal_id, user.id, yesterday)
+  def destination(%{current_user: user, entry_target: %{date: date}}) do
+    entry = Entries.get_entry(user.journal_id, user.id, date)
 
     if entry do
-      ~p"/journals/#{user.journal_id}/entries/#{Date.to_iso8601(yesterday)}"
+      ~p"/journals/#{user.journal_id}/entries/#{Date.to_iso8601(date)}"
     else
       ~p"/entries/new"
     end
@@ -47,6 +38,21 @@ defmodule JeongWeb.Navigation do
       {:cont, socket}
     else
       {:halt, redirect(socket, to: ~p"/")}
+    end
+  end
+
+  defp entry_target(socket) do
+    time_zone = get_connect_params(socket)["time_zone"]
+
+    if time_zone do
+      now = DateTime.now!(time_zone)
+      today = DateTime.to_date(now)
+
+      cond do
+        now.hour in 0..5 -> %{date: Date.add(today, -1), is_today: true}
+        now.hour in 6..21 -> %{date: Date.add(today, -1), is_today: false}
+        now.hour in 22..23 -> %{date: today, is_today: true}
+      end
     end
   end
 end
