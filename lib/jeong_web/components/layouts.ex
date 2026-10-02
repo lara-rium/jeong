@@ -4,12 +4,13 @@ defmodule JeongWeb.Layouts do
   embed_templates "layouts/*"
 
   attr :flash, :map, required: true
+  attr :connected?, :boolean, required: true
   slot :inner_block
 
   def app(assigns) do
     ~H"""
     <.flash_group flash={@flash} />
-    {render_slot(@inner_block)}
+    {if @connected?, do: render_slot(@inner_block)}
     """
   end
 

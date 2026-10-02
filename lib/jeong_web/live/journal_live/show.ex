@@ -11,7 +11,7 @@ defmodule JeongWeb.JournalLive.Show do
 
   def render(assigns) do
     ~H"""
-    <Layouts.app flash={@flash}>
+    <Layouts.app flash={@flash} connected?={@connected?}>
       <main class="flex gap-8 flex-col justify-center items-center min-h-screen">
         <fieldset
           :for={entry <- @entries}

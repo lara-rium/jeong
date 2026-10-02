@@ -18,6 +18,7 @@ defmodule JeongWeb.Navigation do
      socket
      |> assign(:current_user, user)
      |> assign(:time_zone, time_zone)
+     |> assign(:connected?, connected?(socket))
      |> attach_hook(:canonical_path, :handle_params, &redirect_to_index/3)}
   end
 

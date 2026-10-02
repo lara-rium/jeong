@@ -7,7 +7,7 @@ defmodule JeongWeb.UserLive.New do
 
   def render(assigns) do
     ~H"""
-    <Layouts.app flash={@flash}>
+    <Layouts.app flash={@flash} connected?={@connected?}>
       <main class="flex flex-col gap-16 justify-center items-center min-h-screen">
         <div class="text-8xl font-bold text-center">
           <p>your journey of</p>
