@@ -18,6 +18,7 @@ defmodule JeongWeb.JournalLive.Show do
           class="fieldset bg-base-200 w-xl rounded-box border p-6 border-base-300"
         >
           <legend class="fieldset-legend">
+            <%!-- todo: put this in a divider line or sth --%>
             <%= if entry === List.last(@entries) do %>
               {entry.user.name} wrote for {Calendar.strftime(entry.date, "%d.%m.%Y")}
             <% else %>
@@ -40,7 +41,7 @@ defmodule JeongWeb.JournalLive.Show do
         </fieldset>
 
         <div :if={length(@current_user.journal.users) === 1} class="toast toast-center">
-          <div role="alert" class="alert alert-outline alert-info">
+          <div role="alert" class="alert alert-soft alert-info">
             <.icon name="hero-user-plus" />
             <span>send this link to your partner to add them to your journal</span>
             <button

@@ -26,6 +26,7 @@ defmodule JeongWeb.Navigation do
   def destination(%{current_user: user, time_zone: time_zone}) do
     now = DateTime.now!(time_zone)
 
+    # todo: change this to today based on time
     yesterday =
       now
       |> DateTime.shift(day: -1)
