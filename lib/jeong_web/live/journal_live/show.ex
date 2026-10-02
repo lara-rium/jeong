@@ -17,7 +17,7 @@ defmodule JeongWeb.JournalLive.Show do
           :for={entry <- @entries}
           class="fieldset bg-base-200 w-xl rounded-box border p-6 border-base-300"
         >
-          <legend class="fieldset-legend">
+          <legend class="fieldset-legend py-0">
             <%!-- todo: put this in a divider line or sth --%>
             <%= if entry === List.last(@entries) do %>
               {entry.user.name} wrote for {Calendar.strftime(entry.date, "%d.%m.%Y")}
@@ -26,16 +26,16 @@ defmodule JeongWeb.JournalLive.Show do
             <% end %>
           </legend>
 
-          <div class="carousel gap-4 rounded-box *:carousel-item *:box-border *:min-w-36 *:h-48 *:rounded-box">
-            <%!-- todo: clicking should enlarge image --%>
-            <img
-              :for={media <- entry.media}
-              src={"data:image/jpeg;base64,#{Base.encode64(media)}"}
-            />
+          <div :if={entry.media != []}>
+            <div class="carousel gap-4 rounded-box *:carousel-item *:box-border *:min-w-36 *:h-48 *:rounded-box">
+              <%!-- todo: clicking should enlarge image --%>
+              <img
+                :for={media <- entry.media}
+                src={"data:image/jpeg;base64,#{Base.encode64(media)}"}
+              />
+            </div>
+            <div class="my-0 divider"></div>
           </div>
-
-          <%!-- todo: remove this if no images --%>
-          <div class="my-0 divider"></div>
 
           <p class="whitespace-pre-wrap">{entry.text}</p>
         </fieldset>
