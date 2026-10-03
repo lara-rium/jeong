@@ -347,7 +347,7 @@ defmodule JeongWeb.CoreComponents do
         <tr>
           <th :for={col <- @col}>{col[:label]}</th>
           <th :if={@action != []}>
-            <span class="sr-only">{gettext("Actions")}</span>
+            <span class="sr-only">{gettext("actions")}</span>
           </th>
         </tr>
       </thead>

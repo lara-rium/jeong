@@ -15,10 +15,12 @@ defmodule JeongWeb.JournalLive.Show do
       <main class="flex gap-8 flex-col justify-center items-center min-h-screen">
         <div>
           <div class="divider w-xl self-auto my-0">
-            {if @entry_target.is_today, do: "today's", else: "yesterday's"} entries
+            {if @entry_target.is_today,
+              do: gettext("today's entries"),
+              else: gettext("yesterday's entries")}
           </div>
           <p :if={!@entry_target.is_today} class="text-xs text-center mt-2 opacity-60">
-            come after 10pm to see today's entries
+            {gettext("come after 10pm to see today's entries")}
           </p>
         </div>
 
@@ -26,20 +28,22 @@ defmodule JeongWeb.JournalLive.Show do
 
         <%= if @entries.random do %>
           <div class="divider w-xl self-auto my-0">
-            random entry on {Calendar.strftime(@entries.random.date, "%d/%m/%Y")}
+            {gettext("random entry on %{date}",
+              date: Calendar.strftime(@entries.random.date, "%d/%m/%Y")
+            )}
           </div>
 
           <.entry entry={@entries.random} />
         <% else %>
           <div class="divider w-xl self-auto my-0">
-            your random entry will appear below once you have another entry
+            {gettext("your random entry will appear below once you have another entry")}
           </div>
         <% end %>
 
         <div :if={length(@current_user.journal.users) === 1} class="toast toast-center">
           <div role="alert" class="alert alert-soft alert-info">
             <.icon name="hero-user-plus" />
-            <span>send this link to your partner to add them to your journal</span>
+            <span>{gettext("send this link to your partner to add them to your journal")}</span>
             <button
               id="copy-invite"
               type="button"

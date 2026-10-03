@@ -32,6 +32,7 @@ defmodule Jeong.Entries do
       |> where(date: ^date)
       |> Repo.all()
 
+    # todo: return all entries on random date
     random =
       entries
       |> where([entry], entry.date != ^date)

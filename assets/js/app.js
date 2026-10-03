@@ -30,7 +30,8 @@ const liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
   params: {
     _csrf_token: csrfToken,
-    time_zone: Intl.DateTimeFormat().resolvedOptions().timeZone
+    time_zone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    locale: navigator.language
   },
   hooks: {...colocatedHooks},
 })

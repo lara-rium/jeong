@@ -10,9 +10,9 @@ defmodule JeongWeb.UserLive.New do
     <Layouts.app flash={@flash} connected?={@connected?}>
       <main class="flex flex-col gap-16 justify-center items-center min-h-screen">
         <div class="text-8xl font-bold text-center">
-          <p>your journey of</p>
-          <p class="text-accent italic mt-4">shared journaling</p>
-          <p>starts here</p>
+          <p>{gettext("your journey of")}</p>
+          <p class="text-accent italic mt-4">{gettext("shared journaling")}</p>
+          <p>{gettext("starts here")}</p>
         </div>
         <.link
           id="google-signup"
@@ -20,9 +20,9 @@ defmodule JeongWeb.UserLive.New do
           class="btn btn-accent btn-xl font-bold w-fit"
         >
           <%= if @token do %>
-            sign up with google to join journal
+            {gettext("sign in with google to join journal")}
           <% else %>
-            sign up with google
+            {gettext("sign in with google")}
           <% end %>
         </.link>
       </main>

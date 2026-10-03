@@ -10,6 +10,8 @@ defmodule JeongWeb.Navigation do
   alias Jeong.Users
 
   def on_mount(:default, _params, session, socket) do
+    put_locale(socket)
+
     user_id = session["user_id"]
     user = user_id && Users.get_user(user_id)
 
@@ -38,6 +40,19 @@ defmodule JeongWeb.Navigation do
       {:cont, socket}
     else
       {:halt, redirect(socket, to: ~p"/")}
+    end
+  end
+
+  defp put_locale(socket) do
+    locale = get_connect_params(socket)["locale"]
+
+    if locale do
+      Gettext.put_locale(
+        JeongWeb.Gettext,
+        locale
+        |> String.split("-")
+        |> hd()
+      )
     end
   end
 

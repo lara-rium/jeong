@@ -44,7 +44,9 @@ defmodule JeongWeb.EntryLive.New do
         <.form id="entry-form" for={@form} phx-change="validate" phx-submit="save">
           <fieldset class="fieldset bg-base-200 w-xl rounded-box border p-6 border-base-300">
             <legend class="fieldset-legend">
-              add {if @entry_target.is_today, do: "today", else: "yesterday"} to your journal to continue
+              {if @entry_target.is_today,
+                do: gettext("add today to your journal to continue"),
+                else: gettext("add yesterday to your journal to continue")}
             </legend>
 
             <div
@@ -63,7 +65,7 @@ defmodule JeongWeb.EntryLive.New do
                 class="btn btn-dash noise"
               >
                 <span class="text-2xl">+</span>
-                <span>add a photo</span>
+                <span>{gettext("add a photo")}</span>
                 <.live_file_input upload={@uploads.media} class="hidden" />
               </label>
             </div>
@@ -74,14 +76,14 @@ defmodule JeongWeb.EntryLive.New do
               field={@form[:text]}
               type="textarea"
               class="w-full textarea noise h-48 rounded-3xl bg-base-200"
-              placeholder="write about it..."
+              placeholder={gettext("write about it...")}
               required
             />
 
-            <button type="submit" class="btn btn-primary">save</button>
+            <button type="submit" class="btn btn-primary">{gettext("save")}</button>
 
             <p :if={!@entry_target.is_today} class="label mt-2 w-full text-center">
-              you're writing for yesterday because it's before 10pm
+              {gettext("you're writing for yesterday because it's before 10pm")}
             </p>
           </fieldset>
         </.form>

@@ -9,7 +9,7 @@ defmodule JeongWeb.AuthController do
 
   def callback(%{assigns: %{ueberauth_failure: %Ueberauth.Failure{}}} = conn, _params) do
     conn
-    |> put_flash(:error, "couldn't sign you in. please try again.")
+    |> put_flash(:error, gettext("couldn't sign you in, please try again"))
     |> redirect(to: ~p"/users/new")
   end
 

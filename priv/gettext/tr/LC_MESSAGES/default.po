@@ -1,0 +1,128 @@
+## "msgid"s in this file come from POT (.pot) files.
+###
+### Do not add, change, or remove "msgid"s manually here as
+### they're tied to the ones in the corresponding POT file
+### (with the same domain).
+###
+### Use "mix gettext.extract --merge" or "mix gettext.merge"
+### to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
+
+#: lib/jeong_web/components/core_components.ex:350
+#, elixir-autogen, elixir-format
+msgid "actions"
+msgstr "interaksiyonlar"
+
+#: lib/jeong_web/live/entry_live/new.ex:68
+#, elixir-autogen, elixir-format
+msgid "add a photo"
+msgstr "fotoğraf ekle"
+
+#: lib/jeong_web/live/entry_live/new.ex:48
+#, elixir-autogen, elixir-format
+msgid "add today to your journal to continue"
+msgstr "devam etmek için günlüğünde bugünden bahset"
+
+#: lib/jeong_web/live/entry_live/new.ex:49
+#, elixir-autogen, elixir-format
+msgid "add yesterday to your journal to continue"
+msgstr "devam etmek için günlüğünde dünden bahset"
+
+#: lib/jeong_web/components/core_components.ex:56
+#, elixir-autogen, elixir-format
+msgid "close"
+msgstr "kapat"
+
+#: lib/jeong_web/live/journal_live/show.ex:23
+#, elixir-autogen, elixir-format
+msgid "come after 10pm to see today's entries"
+msgstr "bugün için yazılanlar akşam 10'dan sonra görünecek"
+
+#: lib/jeong_web/components/layouts.ex:47
+#, elixir-autogen, elixir-format
+msgid "oops, you got disconnected"
+msgstr "maalesef bağlantın koptu"
+
+#: lib/jeong_web/live/journal_live/show.ex:31
+#, elixir-autogen, elixir-format
+msgid "random entry on %{date}"
+msgstr "%{date} tarihindeki rastgele yazı"
+
+#: lib/jeong_web/live/entry_live/new.ex:83
+#, elixir-autogen, elixir-format
+msgid "save"
+msgstr "kaydet"
+
+#: lib/jeong_web/live/journal_live/show.ex:46
+#, elixir-autogen, elixir-format
+msgid "send this link to your partner to add them to your journal"
+msgstr "bu linki günlük ortağına göndererek onu günlüğünüze ekleyebilirsin"
+
+#: lib/jeong_web/live/user_live/new.ex:14
+#, elixir-autogen, elixir-format
+msgid "shared journaling"
+msgstr "ortak günlük"
+
+#: lib/jeong_web/components/layouts.ex:62
+#, elixir-autogen, elixir-format
+msgid "sorry, something just broke..."
+msgstr "üzgünüz, bir şeyler bozuldu..."
+
+#: lib/jeong_web/live/user_live/new.ex:15
+#, elixir-autogen, elixir-format
+msgid "starts here"
+msgstr "deneyimin başlıyor"
+
+#: lib/jeong_web/live/journal_live/show.ex:19
+#, elixir-autogen, elixir-format
+msgid "today's entries"
+msgstr "bugün için yazılanlar"
+
+#: lib/jeong_web/components/layouts.ex:55
+#: lib/jeong_web/components/layouts.ex:70
+#, elixir-autogen, elixir-format
+msgid "trying to connect you back"
+msgstr "tekrar bağlanmaya çalışıyoruz"
+
+#: lib/jeong_web/live/entry_live/new.ex:79
+#, elixir-autogen, elixir-format
+msgid "write about it..."
+msgstr "buraya yaz..."
+
+#: lib/jeong_web/live/journal_live/show.ex:20
+#, elixir-autogen, elixir-format
+msgid "yesterday's entries"
+msgstr "dün için yazılanlar"
+
+#: lib/jeong_web/live/entry_live/new.ex:86
+#, elixir-autogen, elixir-format
+msgid "you're writing for yesterday because it's before 10pm"
+msgstr "saat akşam 10'dan önce olduğu için dün için yazıyorsun"
+
+#: lib/jeong_web/live/user_live/new.ex:13
+#, elixir-autogen, elixir-format
+msgid "your journey of"
+msgstr "hazırsan,"
+
+#: lib/jeong_web/live/journal_live/show.ex:39
+#, elixir-autogen, elixir-format
+msgid "your random entry will appear below once you have another entry"
+msgstr "bir günden daha bahsettiğinde rastgele yazın aşağıda çıkacak"
+
+#: lib/jeong_web/controllers/auth_controller.ex:12
+#, elixir-autogen, elixir-format
+msgid "couldn't sign you in, please try again"
+msgstr "giriş yapılamadı, lütfen tekrar dene"
+
+#: lib/jeong_web/live/user_live/new.ex:25
+#, elixir-autogen, elixir-format
+msgid "sign in with google"
+msgstr "google ile giriş yap"
+
+#: lib/jeong_web/live/user_live/new.ex:23
+#, elixir-autogen, elixir-format
+msgid "sign in with google to join journal"
+msgstr "google ile giriş yaparak günlüğe katıl"

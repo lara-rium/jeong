@@ -1,0 +1,102 @@
+## "msgid"s in this file come from POT (.pot) files.
+###
+### Do not add, change, or remove "msgid"s manually here as
+### they're tied to the ones in the corresponding POT file
+### (with the same domain).
+###
+### Use "mix gettext.extract --merge" or "mix gettext.merge"
+### to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
+
+msgid "can't be blank"
+msgstr "boş olamaz"
+
+msgid "has already been taken"
+msgstr "zaten alınmış"
+
+msgid "is invalid"
+msgstr "uygun değil"
+
+msgid "must be accepted"
+msgstr "kabul edilmeli"
+
+msgid "has invalid format"
+msgstr "yanlış formatta"
+
+msgid "has an invalid entry"
+msgstr "uygun olmayan bir şeye sahip"
+
+msgid "is reserved"
+msgstr "rezerve edilmiş"
+
+msgid "does not match confirmation"
+msgstr "doğrulamayla aynı değil"
+
+msgid "is still associated with this entry"
+msgstr "hala buna bağlı"
+
+msgid "are still associated with this entry"
+msgstr "hala buna bağlı"
+
+msgid "should have %{count} item(s)"
+msgid_plural "should have %{count} item(s)"
+msgstr[0] "%{count} öğeli olmalı"
+msgstr[1] "%{count} öğeli olmalı"
+
+msgid "should be %{count} character(s)"
+msgid_plural "should be %{count} character(s)"
+msgstr[0] "%{count} karakter olmalı"
+msgstr[1] "%{count} karakter olmalı"
+
+msgid "should be %{count} byte(s)"
+msgid_plural "should be %{count} byte(s)"
+msgstr[0] "%{count} byte olmalı"
+msgstr[1] "%{count} byte olmalı"
+
+msgid "should have at least %{count} item(s)"
+msgid_plural "should have at least %{count} item(s)"
+msgstr[0] "en az %{count} öğeli olmalı"
+msgstr[1] "en az %{count} öğeli olmalı"
+
+msgid "should be at least %{count} character(s)"
+msgid_plural "should be at least %{count} character(s)"
+msgstr[0] "en az %{count} karakter olmalı"
+msgstr[1] "en az %{count} karakter olmalı"
+
+msgid "should be at least %{count} byte(s)"
+msgid_plural "should be at least %{count} byte(s)"
+msgstr[0] "en az %{count} byte olmalı"
+msgstr[1] "en az %{count} byte olmalı"
+
+msgid "should have at most %{count} item(s)"
+msgid_plural "should have at most %{count} item(s)"
+msgstr[0] "en fazla %{count} öğeli olmalı"
+msgstr[1] "en fazla %{count} öğeli olmalı"
+
+msgid "should be at most %{count} character(s)"
+msgid_plural "should be at most %{count} character(s)"
+msgstr[0] "en fazla %{count} karakter olmalı"
+msgstr[1] "en fazla %{count} karakter olmalı"
+
+msgid "should be at most %{count} byte(s)"
+msgid_plural "should be at most %{count} byte(s)"
+msgstr[0] "en fazla %{count} byte olmalı"
+msgstr[1] "en fazla %{count} byte olmalı"
+
+msgid "must be less than %{number}"
+msgstr "%{number} sayısından az olmalı"
+
+msgid "must be greater than %{number}"
+msgstr "%{number} sayısından fazla olmalı"
+
+msgid "must be less than or equal to %{number}"
+msgstr "en fazla %{number} olmalı"
+
+msgid "must be greater than or equal to %{number}"
+msgstr "en az %{number} olmalı"
+
+msgid "must be equal to %{number}"
+msgstr "%{number} olmalı"
