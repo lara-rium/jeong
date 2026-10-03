@@ -36,27 +36,17 @@ msgstr "devam etmek için günlüğünde dünden bahset"
 msgid "close"
 msgstr "kapat"
 
-#: lib/jeong_web/live/journal_live/show.ex:23
-#, elixir-autogen, elixir-format
-msgid "come after 10pm to see today's entries"
-msgstr "bugün için yazılanlar akşam 10'dan sonra görünecek"
-
 #: lib/jeong_web/components/layouts.ex:47
 #, elixir-autogen, elixir-format
 msgid "oops, you got disconnected"
 msgstr "maalesef bağlantın koptu"
-
-#: lib/jeong_web/live/journal_live/show.ex:31
-#, elixir-autogen, elixir-format
-msgid "random entry on %{date}"
-msgstr "%{date} tarihindeki rastgele yazı"
 
 #: lib/jeong_web/live/entry_live/new.ex:83
 #, elixir-autogen, elixir-format
 msgid "save"
 msgstr "kaydet"
 
-#: lib/jeong_web/live/journal_live/show.ex:46
+#: lib/jeong_web/live/journal_live/show.ex:50
 #, elixir-autogen, elixir-format
 msgid "send this link to your partner to add them to your journal"
 msgstr "bu linki günlük ortağına göndererek onu günlüğünüze ekleyebilirsin"
@@ -107,11 +97,6 @@ msgstr "saat akşam 10'dan önce olduğu için dün için yazıyorsun"
 msgid "your journey of"
 msgstr "hazırsan,"
 
-#: lib/jeong_web/live/journal_live/show.ex:39
-#, elixir-autogen, elixir-format
-msgid "your random entry will appear below once you have another entry"
-msgstr "bir günden daha bahsettiğinde rastgele yazın aşağıda çıkacak"
-
 #: lib/jeong_web/controllers/auth_controller.ex:12
 #, elixir-autogen, elixir-format
 msgid "couldn't sign you in, please try again"
@@ -126,3 +111,18 @@ msgstr "google ile giriş yap"
 #, elixir-autogen, elixir-format
 msgid "sign in with google to join journal"
 msgstr "google ile giriş yaparak günlüğe katıl"
+
+#: lib/jeong_web/live/journal_live/show.ex:23
+#, elixir-autogen, elixir-format
+msgid "come back after 10pm to see today's entries"
+msgstr "bugün için yazılanlar akşam 10'dan sonra görünecek"
+
+#: lib/jeong_web/live/journal_live/show.ex:31
+#, elixir-autogen, elixir-format
+msgid "look back at a random day:"
+msgstr "rastgele bir günü hatırla:"
+
+#: lib/jeong_web/live/journal_live/show.ex:41
+#, elixir-autogen, elixir-format
+msgid "you'll be able to look back at a random day below once you write for another day"
+msgstr "bir günden daha bahsettiğinde rastgele bir günü aşağıya bakarak hatırlayabileceksin"

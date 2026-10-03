@@ -36,19 +36,9 @@ msgstr ""
 msgid "close"
 msgstr ""
 
-#: lib/jeong_web/live/journal_live/show.ex:23
-#, elixir-autogen, elixir-format
-msgid "come after 10pm to see today's entries"
-msgstr ""
-
 #: lib/jeong_web/components/layouts.ex:47
 #, elixir-autogen, elixir-format
 msgid "oops, you got disconnected"
-msgstr ""
-
-#: lib/jeong_web/live/journal_live/show.ex:31
-#, elixir-autogen, elixir-format
-msgid "random entry on %{date}"
 msgstr ""
 
 #: lib/jeong_web/live/entry_live/new.ex:83
@@ -56,7 +46,7 @@ msgstr ""
 msgid "save"
 msgstr ""
 
-#: lib/jeong_web/live/journal_live/show.ex:46
+#: lib/jeong_web/live/journal_live/show.ex:50
 #, elixir-autogen, elixir-format
 msgid "send this link to your partner to add them to your journal"
 msgstr ""
@@ -107,11 +97,6 @@ msgstr ""
 msgid "your journey of"
 msgstr ""
 
-#: lib/jeong_web/live/journal_live/show.ex:39
-#, elixir-autogen, elixir-format
-msgid "your random entry will appear below once you have another entry"
-msgstr ""
-
 #: lib/jeong_web/controllers/auth_controller.ex:12
 #, elixir-autogen, elixir-format
 msgid "couldn't sign you in, please try again"
@@ -125,4 +110,19 @@ msgstr ""
 #: lib/jeong_web/live/user_live/new.ex:23
 #, elixir-autogen, elixir-format
 msgid "sign in with google to join journal"
+msgstr ""
+
+#: lib/jeong_web/live/journal_live/show.ex:23
+#, elixir-autogen, elixir-format
+msgid "come back after 10pm to see today's entries"
+msgstr ""
+
+#: lib/jeong_web/live/journal_live/show.ex:31
+#, elixir-autogen, elixir-format
+msgid "look back at a random day:"
+msgstr ""
+
+#: lib/jeong_web/live/journal_live/show.ex:41
+#, elixir-autogen, elixir-format
+msgid "you'll be able to look back at a random day below once you write for another day"
 msgstr ""

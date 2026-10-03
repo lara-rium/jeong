@@ -20,23 +20,27 @@ defmodule JeongWeb.JournalLive.Show do
               else: gettext("yesterday's entries")}
           </div>
           <p :if={!@entry_target.is_today} class="text-xs text-center mt-2 opacity-60">
-            {gettext("come after 10pm to see today's entries")}
+            {gettext("come back after 10pm to see today's entries")}
           </p>
         </div>
 
         <.entry :for={entry <- @entries.requested} entry={entry} />
 
-        <%= if @entries.random do %>
-          <div class="divider w-xl self-auto my-0">
-            {gettext("random entry on %{date}",
-              date: Calendar.strftime(@entries.random.date, "%d/%m/%Y")
-            )}
+        <%= if @entries.random != [] do %>
+          <div class="divider w-xl self-auto my-0 gap-0">
+            {gettext("look back at a random day:")}
+            <span class="font-bold">&nbsp;{Calendar.strftime(
+              List.first(@entries.random).date,
+              "%d/%m/%Y"
+            )}</span>
           </div>
 
-          <.entry entry={@entries.random} />
+          <.entry :for={entry <- @entries.random} entry={entry} />
         <% else %>
           <div class="divider w-xl self-auto my-0">
-            {gettext("your random entry will appear below once you have another entry")}
+            {gettext(
+              "you'll be able to look back at a random day below once you write for another day"
+            )}
           </div>
         <% end %>
 

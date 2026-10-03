@@ -32,13 +32,18 @@ defmodule Jeong.Entries do
       |> where(date: ^date)
       |> Repo.all()
 
-    # todo: return all entries on random date
+    random_date =
+      Entry
+      |> where([entry], entry.journal_id == ^journal_id and entry.date != ^date)
+      |> select([entry], entry.date)
+      |> group_by([entry], entry.date)
+      |> order_by([entry], fragment("md5(?::text || ?::text)", entry.date, ^daily_seed))
+      |> limit(1)
+
     random =
       entries
-      |> where([entry], entry.date != ^date)
-      |> order_by([entry], fragment("md5(?::text || ?::text)", entry.id, ^daily_seed))
-      |> limit(1)
-      |> Repo.one()
+      |> where([entry], entry.date in subquery(random_date))
+      |> Repo.all()
 
     %{requested: requested, random: random}
   end
