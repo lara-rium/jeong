@@ -26,8 +26,7 @@ defmodule JeongWeb.JournalLive.Show do
 
         <%= if @entries.random do %>
           <div class="divider w-xl self-auto my-0">
-            <%!-- todo: use standard date format here --%>
-            random entry on {Calendar.strftime(@entries.random.date, "%d.%m.%Y")}
+            random entry on {Calendar.strftime(@entries.random.date, "%d/%m/%Y")}
           </div>
 
           <.entry entry={@entries.random} />
