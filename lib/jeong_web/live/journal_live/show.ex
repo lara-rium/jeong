@@ -52,6 +52,12 @@ defmodule JeongWeb.JournalLive.Show do
           </div>
         </div>
       </main>
+      <dialog id="image-preview" class="modal">
+        <div class="modal-box p-0 max-w-full w-fit">
+          <img class="h-[80vh] w-[80w] object-contain" />
+        </div>
+        <form method="dialog" class="modal-backdrop"><button class="cursor-default"></button></form>
+      </dialog>
     </Layouts.app>
 
     <script :type={Phoenix.LiveView.ColocatedHook} name=".CopyText">
@@ -79,10 +85,12 @@ defmodule JeongWeb.JournalLive.Show do
       <legend class="fieldset-legend py-0">{@entry.user.name}:</legend>
 
       <div :if={@entry.media != []}>
-        <div class="carousel gap-4 rounded-box *:carousel-item *:box-border *:min-w-36 *:h-48 *:rounded-box">
-          <%!-- todo: clicking should enlarge image --%>
+        <div class="carousel gap-4 rounded-box">
           <img
-            :for={media <- @entry.media}
+            :for={{media, index} <- Enum.with_index(@entry.media)}
+            id={"image-thumbnail-#{@entry.id}-#{index}"}
+            class="carousel-item box-border min-w-36 h-48 rounded-box cursor-pointer"
+            phx-hook=".OpenModal"
             src={"data:image/jpeg;base64,#{Base.encode64(media)}"}
           />
         </div>
@@ -91,6 +99,18 @@ defmodule JeongWeb.JournalLive.Show do
 
       <p class="whitespace-pre-wrap">{@entry.text}</p>
     </fieldset>
+
+    <script :type={Phoenix.LiveView.ColocatedHook} name=".OpenModal">
+      export default {
+        mounted() {
+          this.el.addEventListener("click", () => {
+            const dialog = document.getElementById("image-preview")
+            dialog.querySelector("img").src = this.el.src
+            dialog.showModal()
+          })
+        }
+      }
+    </script>
     """
   end
 end
