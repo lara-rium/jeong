@@ -46,7 +46,7 @@ msgstr ""
 msgid "save"
 msgstr ""
 
-#: lib/jeong_web/live/journal_live/show.ex:50
+#: lib/jeong_web/live/journal_live/show.ex:53
 #, elixir-autogen, elixir-format
 msgid "send this link to your partner to add them to your journal"
 msgstr ""
@@ -119,10 +119,10 @@ msgstr ""
 
 #: lib/jeong_web/live/journal_live/show.ex:31
 #, elixir-autogen, elixir-format
-msgid "look back at a random day:"
+msgid "look back at a random day"
 msgstr ""
 
-#: lib/jeong_web/live/journal_live/show.ex:41
+#: lib/jeong_web/live/journal_live/show.ex:46
 #, elixir-autogen, elixir-format
-msgid "you'll be able to look back at a random day below once you write for another day"
+msgid "your random day will appear here once you write for another day"
 msgstr ""

@@ -11,7 +11,6 @@ defmodule JeongWeb.IndexLive do
     end
   end
 
-  # todo: make sure mobile works
   def render(assigns) do
     ~H"""
     <Layouts.app flash={@flash} connected?={@connected?} />
