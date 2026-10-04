@@ -84,7 +84,9 @@ defmodule Jeong.MixProject do
       "assets.setup": [
         "tailwind.install --if-missing",
         "esbuild.install --if-missing",
-        "cmd mkdir -p assets/node_modules && ln -sfn ../../deps/daisyui assets/node_modules/daisyui && ln -sfn ../../_build/dev/phoenix-colocated assets/node_modules/phoenix-colocated"
+        "cmd mkdir -p assets/node_modules",
+        "cmd ln -sfn ../../deps/daisyui assets/node_modules/daisyui",
+        "ln -sfn ../../_build/#{Mix.env()}/phoenix-colocated assets/node_modules/phoenix-colocated"
       ],
       "assets.build": ["compile", "tailwind jeong", "esbuild jeong"],
       "assets.deploy": [
