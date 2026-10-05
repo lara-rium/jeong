@@ -64,8 +64,8 @@ defmodule JeongWeb.JournalLive.Show do
         </div>
       </main>
       <dialog id="image-preview" class="modal">
-        <div class="modal-box p-0 max-w-full w-fit">
-          <img class="w-[90vw] object-contain" />
+        <div class="modal-box p-0 max-w-[90vw] max-h-[90dvh] w-fit">
+          <img />
         </div>
         <form method="dialog" class="modal-backdrop"><button class="cursor-default"></button></form>
       </dialog>
@@ -92,10 +92,10 @@ defmodule JeongWeb.JournalLive.Show do
 
   defp entry(assigns) do
     ~H"""
-    <fieldset class="fieldset bg-base-200 rounded-box border p-6 border-base-300 w-full">
+    <fieldset class="fieldset bg-base-200 rounded-box border p-6 border-base-300 w-full min-w-0 max-w-full">
       <legend class="fieldset-legend py-0">{@entry.user.name}:</legend>
 
-      <div :if={@entry.media != []}>
+      <%= if @entry.media != [] do %>
         <div class="carousel gap-4 rounded-box">
           <img
             :for={{media, index} <- Enum.with_index(@entry.media)}
@@ -105,8 +105,9 @@ defmodule JeongWeb.JournalLive.Show do
             src={"data:image/jpeg;base64,#{Base.encode64(media)}"}
           />
         </div>
+
         <div class="my-0 divider"></div>
-      </div>
+      <% end %>
 
       <p class="whitespace-pre-wrap">{@entry.text}</p>
     </fieldset>
