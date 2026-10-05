@@ -64,8 +64,8 @@ defmodule JeongWeb.JournalLive.Show do
         </div>
       </main>
       <dialog id="image-preview" class="modal">
-        <div class="modal-box p-0 max-w-[90vw] max-h-[90dvh] w-fit">
-          <img />
+        <div class="modal-box p-0 max-w-[90vw] max-h-none w-fit">
+          <img class="w-auto h-auto max-w-[90vw] max-h-[90dvh]" />
         </div>
         <form method="dialog" class="modal-backdrop"><button class="cursor-default"></button></form>
       </dialog>
