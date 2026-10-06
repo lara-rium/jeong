@@ -12,7 +12,7 @@ defmodule JeongWeb.JournalLive.Show do
   def render(assigns) do
     ~H"""
     <Layouts.app flash={@flash} connected?={@connected?}>
-      <main class="flex gap-8 flex-col justify-center items-center min-h-screen max-w-xl mx-auto px-4">
+      <main class="flex gap-8 flex-col justify-center items-center min-h-dvh max-w-xl mx-auto px-4 py-6">
         <div class="w-full">
           <div class="divider my-0">
             {if @entry_target.is_today,
