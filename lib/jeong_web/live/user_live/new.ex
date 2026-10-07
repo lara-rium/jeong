@@ -8,7 +8,7 @@ defmodule JeongWeb.UserLive.New do
   def render(assigns) do
     ~H"""
     <Layouts.app flash={@flash} connected?={@connected?}>
-      <main class="flex flex-col lg:gap-16 gap-4 justify-center items-center min-h-screen">
+      <main class="flex flex-col lg:gap-16 gap-4 justify-center items-center min-h-dvh">
         <div class="lg:text-8xl text-5xl font-bold text-center">
           <p>{gettext("your journey of")}</p>
           <p class="text-accent italic">{gettext("shared journaling")}</p>

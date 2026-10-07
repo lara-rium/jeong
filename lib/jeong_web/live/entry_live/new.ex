@@ -40,7 +40,7 @@ defmodule JeongWeb.EntryLive.New do
   def render(assigns) do
     ~H"""
     <Layouts.app flash={@flash} connected?={@connected?}>
-      <main class="grid place-items-center min-h-screen max-w-xl mx-auto px-4">
+      <main class="grid place-items-center min-h-dvh max-w-xl mx-auto px-4">
         <.form id="entry-form" for={@form} phx-change="validate" phx-submit="save" class="w-full">
           <fieldset class="fieldset bg-base-200 rounded-box border p-6 border-base-300">
             <legend class="fieldset-legend">
