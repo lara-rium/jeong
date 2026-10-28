@@ -87,11 +87,6 @@ msgstr "buraya yaz..."
 msgid "yesterday's entries"
 msgstr "dün için yazılanlar"
 
-#: lib/jeong_web/live/entry_live/new.ex:86
-#, elixir-autogen, elixir-format
-msgid "you're writing for yesterday because it's before 10pm"
-msgstr "saat akşam 10'dan önce olduğu için dün için yazıyorsun"
-
 #: lib/jeong_web/live/user_live/new.ex:13
 #, elixir-autogen, elixir-format
 msgid "your journey of"
@@ -112,11 +107,6 @@ msgstr "google ile giriş yap"
 msgid "sign in with google to join journal"
 msgstr "google ile giriş yaparak günlüğe katıl"
 
-#: lib/jeong_web/live/journal_live/show.ex:23
-#, elixir-autogen, elixir-format
-msgid "come back after 10pm to see today's entries"
-msgstr "bugün için yazılanlar akşam 10'dan sonra görünecek"
-
 #: lib/jeong_web/live/journal_live/show.ex:31
 #, elixir-autogen, elixir-format, fuzzy
 msgid "look back at a random day"
@@ -126,3 +116,13 @@ msgstr "rastgele bir günü hatırla"
 #, elixir-autogen, elixir-format
 msgid "your random day will appear here once you write for another day"
 msgstr "bir günden daha bahsettiğinde rastgele günün burada çıkacak"
+
+#: lib/jeong_web/live/journal_live/show.ex:23
+#, elixir-autogen, elixir-format
+msgid "come back after 2pm to see today's entries"
+msgstr "bugün için yazılanlar öğlen 2'den sonra görünecek"
+
+#: lib/jeong_web/live/entry_live/new.ex:86
+#, elixir-autogen, elixir-format
+msgid "you're writing for yesterday because it's before 2pm"
+msgstr "saat öğlen 2'den önce olduğu için dün için yazıyorsun"

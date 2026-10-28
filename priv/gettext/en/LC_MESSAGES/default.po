@@ -87,11 +87,6 @@ msgstr ""
 msgid "yesterday's entries"
 msgstr ""
 
-#: lib/jeong_web/live/entry_live/new.ex:86
-#, elixir-autogen, elixir-format
-msgid "you're writing for yesterday because it's before 10pm"
-msgstr ""
-
 #: lib/jeong_web/live/user_live/new.ex:13
 #, elixir-autogen, elixir-format
 msgid "your journey of"
@@ -112,11 +107,6 @@ msgstr ""
 msgid "sign in with google to join journal"
 msgstr ""
 
-#: lib/jeong_web/live/journal_live/show.ex:23
-#, elixir-autogen, elixir-format
-msgid "come back after 10pm to see today's entries"
-msgstr ""
-
 #: lib/jeong_web/live/journal_live/show.ex:31
 #, elixir-autogen, elixir-format
 msgid "look back at a random day"
@@ -125,4 +115,14 @@ msgstr ""
 #: lib/jeong_web/live/journal_live/show.ex:46
 #, elixir-autogen, elixir-format
 msgid "your random day will appear here once you write for another day"
+msgstr ""
+
+#: lib/jeong_web/live/journal_live/show.ex:23
+#, elixir-autogen, elixir-format
+msgid "come back after 2pm to see today's entries"
+msgstr ""
+
+#: lib/jeong_web/live/entry_live/new.ex:86
+#, elixir-autogen, elixir-format
+msgid "you're writing for yesterday because it's before 2pm"
 msgstr ""

@@ -83,7 +83,7 @@ defmodule JeongWeb.EntryLive.New do
             <button type="submit" class="btn btn-primary">{gettext("save")}</button>
 
             <p :if={!@entry_target.is_today} class="label mt-2 w-full text-center">
-              {gettext("you're writing for yesterday because it's before 10pm")}
+              {gettext("you're writing for yesterday because it's before 2pm")}
             </p>
           </fieldset>
         </.form>

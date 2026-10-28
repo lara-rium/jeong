@@ -20,7 +20,7 @@ defmodule JeongWeb.JournalLive.Show do
               else: gettext("yesterday's entries")}
           </div>
           <p :if={!@entry_target.is_today} class="text-xs text-center mt-2 opacity-60">
-            {gettext("come back after 10pm to see today's entries")}
+            {gettext("come back after 2pm to see today's entries")}
           </p>
         </div>
 

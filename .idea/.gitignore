@@ -1,0 +1,11 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Custom
+/libraries/
+misc.xml
+modules.xml
+systemdUnitFileExperimental.xml
+deployment.xml

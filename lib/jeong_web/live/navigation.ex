@@ -65,8 +65,8 @@ defmodule JeongWeb.Navigation do
 
       cond do
         now.hour in 0..5 -> %{date: Date.add(today, -1), is_today: true}
-        now.hour in 6..21 -> %{date: Date.add(today, -1), is_today: false}
-        now.hour in 22..23 -> %{date: today, is_today: true}
+        now.hour in 6..13 -> %{date: Date.add(today, -1), is_today: false}
+        now.hour in 14..23 -> %{date: today, is_today: true}
       end
     end
   end

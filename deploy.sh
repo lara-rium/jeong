@@ -1,4 +1,5 @@
 #! /usr/bin/sh
+set -e
 
 export MIX_ENV=prod
 
